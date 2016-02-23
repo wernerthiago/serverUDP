@@ -60,8 +60,6 @@
 
 #include "Socket.h"
 #include "Address.h"
-#include <iostream>
-#include <string.h>
 
 using namespace std;
 
@@ -72,9 +70,10 @@ int main(){
 	if(socket.Open(address)){
 		cout << "TRUE!" << endl;
 	}
-	char * data = {0};
+	std::string data;
 	while(true){
-		data = socket.Receive(address,data);
-		cout << "Recebido" << endl;
+		data = socket.Receive(address);
+		sleep(2	);
+		cout << "Recebido: " << data << endl;
 	}
 }

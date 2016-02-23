@@ -9,8 +9,6 @@
 #define SOCKET_H_
 
 #include "Address.h"
-#include <string>
-#include <iostream>
 
 class Socket {
 public:
@@ -18,8 +16,8 @@ public:
 	virtual ~Socket();
 	bool Open(Address address);
 	void Close();
-	bool Send(Address address, const void * data);
-	char * Receive(Address sender, char * data);
+	bool Send(Address address,  std::string data);
+	std::string Receive(Address sender);
 private:
 	int fd;
 };
